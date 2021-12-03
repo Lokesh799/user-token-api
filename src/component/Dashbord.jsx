@@ -1,7 +1,17 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { useHistory } from "react-router";
 
 export default function Dashbord() {
+
+  const history = useHistory()
+  const onLogOut = (e) => {
+    e.preventDefault()
+    localStorage.removeItem("token")
+    history.push("/login")
+  }
+
+
   return (
     <>
       <h1>Welcome To Dashbord</h1>
@@ -25,9 +35,8 @@ export default function Dashbord() {
           </div>
         </div>
         <button
-          // onClick={onLogOut}
-          className="bg-red-500 hover:bg-red-700 text-red font-bold py-2 px-4 rounded"
-        >
+          onClick={onLogOut}
+          className="bg-red-500 hover:bg-red-700 text-red font-bold py-2 px-4 rounded">
           Logout
         </button>
       </nav>

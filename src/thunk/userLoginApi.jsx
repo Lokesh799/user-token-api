@@ -11,13 +11,9 @@ export const userLoginRequest = (userlogindata, history) => async (dispatch) => 
     history.push("/dashbord")
     dispatch(setToken(response.data));
     console.log(response)
-    const getToken = localStorage.getItem('token') || '[]'
-    const token = JSON.parse(getToken)
-    token.push({
-      token: (response.data.access_token)
-    })
+    let getToken = localStorage.getItem('token')
     if (response.status === 200) {
-      localStorage.setItem("token", JSON.stringify(token))
+      localStorage.setItem("token", (response.data.access_token))
     } else {
       return alert("entered wrong data")
     }

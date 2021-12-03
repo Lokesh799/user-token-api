@@ -1,25 +1,30 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userRequest } from "../thunk/userPostApi";
 import { userRegister } from "../actions";
 
 export default function Registration(props) {
-const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const userinformation = useSelector((state) => state.postUser.userdata);
   // console.log(userinformation)
 
-  const history=useHistory()
+  const history = useHistory()
 
-const handleChange=(event)=>{
-  dispatch(userRegister({...userinformation,[event.target.name]: event.target.value}))
-}
+  const handleChange = (event) => {
+    dispatch(userRegister({ ...userinformation, [event.target.name]: event.target.value }))
+  }
 
-const handleSubmit=(event)=>{
-  event.preventDefault();
-  dispatch(userRequest(userinformation))
-  history.push("/login")
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(userRequest(userinformation))
+    history.push("/login")
+  }
+
+  const onAlreadyAccount = () => {
+    localStorage.removeItem("token")
+    history.push("/login")
+  }
 
   return (
     <>
@@ -40,12 +45,17 @@ const handleSubmit=(event)=>{
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" name="password"  onChange={handleChange} />
+                      <input type="password" id="form3Example4c" class="form-control" name="password" onChange={handleChange} />
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg" onSubmit={handleSubmit}>Register</button>
+                    <button
+                      onClick={onAlreadyAccount}
+                      className="bg-red-500 hover:bg-red-700 text-red font-bold py-2 px-4 rounded">
+                      Login
+                    </button>
                   </div>
                 </form>
               </div>

@@ -1,6 +1,6 @@
 import React from "react";
 // import { useEffect } from "react";
- import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../actions";
 import { userLoginRequest } from "../thunk/userLoginApi";
@@ -8,11 +8,11 @@ import { userLoginRequest } from "../thunk/userLoginApi";
 export default function Login(props) {
   const dispatch = useDispatch();
   const userlogindata = useSelector((state) => state.LoginUser.userdata);
-  const isSuccess=useSelector((state)=>state.LoginUser.isSuccess)
+  const isSuccess = useSelector((state) => state.LoginUser.isSuccess)
   const isError = useSelector((state) => state.LoginUser.isError)
   // console.log(userinformation)
- 
-   const history=useHistory();
+
+  const history = useHistory();
 
   const handleChange = (event) => {
     dispatch(userLogin({ ...userlogindata, [event.target.name]: event.target.value }))
@@ -20,7 +20,7 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(userLoginRequest(userlogindata,history))
+    dispatch(userLoginRequest(userlogindata, history))
   }
   // useEffect(() => {
   //   if (isError) {
