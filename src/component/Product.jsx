@@ -12,10 +12,12 @@ dispatch(productRequest())
 
   return (
     <>
-      <h1>Product</h1>
+    <h1>product</h1>
       {products.map((data)=>
       <li>{data.id}:{data.name}:{data.cost}</li>
+      
       )}
+
     </>
   )
 }

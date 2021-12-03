@@ -6,6 +6,7 @@ const client = axios.create({
   baseURL: ' http://localhost:8000',
 });
  const tokenpro=JSON.parse(localStorage.getItem('token'))
+ console.log(tokenpro)
 tokenpro.map((data =>
 client.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
 ))
