@@ -10,7 +10,6 @@ export const userRequest = (userinformation) => async (dispatch) => {
   try {
     const response = await client.post('/auth/register' , userinformation);
     dispatch(userRegister(response.data));
-    console.log(response)
   } catch (err) {
     console.log(err);
   }

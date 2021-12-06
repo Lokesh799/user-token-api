@@ -10,7 +10,7 @@ export default function Login(props) {
   const userlogindata = useSelector((state) => state.LoginUser.userdata);
   const isSuccess = useSelector((state) => state.LoginUser.isSuccess)
   const isError = useSelector((state) => state.LoginUser.isError)
-  // console.log(userinformation)
+
 
   const history = useHistory();
 
@@ -22,14 +22,7 @@ export default function Login(props) {
     event.preventDefault();
     dispatch(userLoginRequest(userlogindata, history))
   }
-  // useEffect(() => {
-  //   if (isError) {
-  //    alert("something went Wrong")
-  //   }
-  //   if (isSuccess) {
-  //     history.push('/dashbord');
-  //   }
-  // }, [isError, isSuccess]);
+  
 
 
   return (

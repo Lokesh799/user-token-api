@@ -6,7 +6,6 @@ const client = axios.create({
   baseURL: ' http://localhost:8000',
 });
 const tokenfam = localStorage.getItem('token')
-console.log("toekn" ,tokenfam)
 client.defaults.headers.common['Authorization'] = `Bearer ${tokenfam}`
 
 export const familyRequest = (id) => async (dispatch) => {
