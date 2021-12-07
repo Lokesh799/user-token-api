@@ -1,5 +1,4 @@
 import React from "react";
-// import { useEffect } from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../actions";
@@ -8,8 +7,6 @@ import { userLoginRequest } from "../thunk/userLoginApi";
 export default function Login(props) {
   const dispatch = useDispatch();
   const userlogindata = useSelector((state) => state.LoginUser.userdata);
-  const isSuccess = useSelector((state) => state.LoginUser.isSuccess)
-  const isError = useSelector((state) => state.LoginUser.isError)
 
 
   const history = useHistory();

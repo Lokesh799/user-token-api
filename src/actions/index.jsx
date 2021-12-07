@@ -5,6 +5,7 @@ export const GET_PRODUCT = 'GET_PRODUCT';
 export const GET_FAMILY = 'GET_FAMILY';
 export const GET_LOCATIONS = 'GET_LOCATIONS';
 export const GET_TRANSICATION = 'GET_TRANSICATION';
+export const SET_PRODUCT_FILTER = 'SET_PRODUCT_FILTER';
 
 
 export const userRegister = (payload) => ({ type: USER_REGISTER, payload });
@@ -14,3 +15,4 @@ export const getProduct = (payload) => ({ type: GET_PRODUCT, payload });
 export const getFamily = (payload) => ({ type: GET_FAMILY, payload });
 export const getLocations = (payload) => ({ type: GET_LOCATIONS, payload });
 export const getTransication = (payload) => ({ type: GET_TRANSICATION, payload });
+export const setProductFilter = (payload) => ({ type: SET_PRODUCT_FILTER, payload });

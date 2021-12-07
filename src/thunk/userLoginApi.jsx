@@ -10,7 +10,7 @@ export const userLoginRequest = (userlogindata, history) => async (dispatch) => 
     const response = await client.post('/auth/login', userlogindata);
     history.push("/dashbord")
     dispatch(setToken(response.data));
-    let getToken = localStorage.getItem('token')
+     localStorage.getItem('token')
     if (response.status === 200) {
       localStorage.setItem("token", (response.data.access_token))
     } else {

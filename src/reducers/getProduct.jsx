@@ -1,7 +1,10 @@
-import { GET_PRODUCT } from "../actions";
+import { GET_PRODUCT,SET_PRODUCT_FILTER } from "../actions";
 
 const initialState = {
-  products: [],
+  products: {
+    products: [],
+    filters: { page: 1, limit: 2 },
+  },
 }
 
 const getProduct = (state = initialState, action) => {
@@ -9,7 +12,21 @@ const getProduct = (state = initialState, action) => {
     case GET_PRODUCT:
       return {
         ...state,
-        products: action.payload,
+        products:{
+        ...state.products,
+        ...action.payload,
+      }
+    };
+    case SET_PRODUCT_FILTER:
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          filters: {
+            ...state.products.filters,
+            ...action.payload,
+          }
+        },
       };
     default:
       return state;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function navLink() {
@@ -11,13 +11,7 @@ export default function navLink() {
             <ul class="navbar-nav">
               <li class="nav-link">
                 <Link className='link-primary' to='/registration'>Registartion</Link>
-              </li><br />
-              {/* <li class="nav-link">
-                <Link className='link-info' to='/movie'>Movie</Link>
-              </li>
-              <li class="nav-link">
-                <Link className='link-danger' to='/character'>character</Link>
-              </li> */}
+              </li><br/>
             </ul>
           </div>
         </div>

@@ -4,8 +4,6 @@ const initialState = {
   userdata: {
     email: "",
     password: "",
-    // isSuccess: "false",
-    // isErroe: 'false',
   }
 }
 

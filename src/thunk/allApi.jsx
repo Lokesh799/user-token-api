@@ -37,10 +37,14 @@ export const locationRequest = (id) => async (dispatch) => {
 const tokenpro = localStorage.getItem('token')
 client.defaults.headers.common['Authorization'] = `Bearer ${tokenpro}`
 
-export const productRequest = () => async (dispatch) => {
+export const productRequest = (prevFilters) => async (dispatch) => {
   try {
-    const response = await client.get(`/products`);
-    dispatch(getProduct(response.data));
+    const params = {
+      _limit: prevFilters.limit,
+      _page: prevFilters.page,
+    };
+    const response = await client.get(`/products`, { params });
+    dispatch(getProduct({ products: response.data }));
     console.log(response.data)
   } catch (err) {
     console.log(err);
