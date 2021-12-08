@@ -29,7 +29,7 @@ export default function Dashbord() {
                 <Link className='link-warnig' to='/famlies'>Families</Link>
               </li>
               <li class="nav-link">
-                <Link className='link-danger' to='/transactions'>Trasnsition</Link>
+                <Link className='link-danger' to='/transaction'>Trasnsition</Link>
               </li>
             </ul>
           </div>

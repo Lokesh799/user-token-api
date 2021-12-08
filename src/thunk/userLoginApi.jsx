@@ -1,21 +1,14 @@
-import axios from 'axios';
+import client from './axios';
 import { setToken } from '../actions';
 
-const client = axios.create({
-  baseURL: ' http://localhost:8000',
-});
+
 export const userLoginRequest = (userlogindata, history) => async (dispatch) => {
   try {
-    console.log(userlogindata)
     const response = await client.post('/auth/login', userlogindata);
-    history.push("/dashbord")
+    client.defaults.headers.Authorization = `Bearer ${response.data.access_token}`;
+    localStorage.setItem("token", (response.data.access_token))
     dispatch(setToken(response.data));
-     localStorage.getItem('token')
-    if (response.status === 200) {
-      localStorage.setItem("token", (response.data.access_token))
-    } else {
-      return alert("entered wrong data")
-    }
+    history.push("/dashbord")
   } catch (err) {
     console.log(err);
   }

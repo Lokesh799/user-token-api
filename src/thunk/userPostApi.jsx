@@ -1,10 +1,6 @@
-import axios from 'axios';
+import client from './axios';
 import { userRegister } from '../actions';
 
-
-const client = axios.create({
-  baseURL: ' http://localhost:8000',
-});
 
 export const userRequest = (userinformation) => async (dispatch) => {
   try {

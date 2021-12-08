@@ -9,7 +9,6 @@ import Famlies from './component/Famlies';
 import Product from './component/Product';
 import Location from './component/Location';
 import Transactions from './component/Transactions';
-import Protected from './component/protected';
 
 function App() {
   return (
@@ -19,19 +18,11 @@ function App() {
         <Route path="/registration" component={Registration} />
         <Route path="/login" component={Login} />
         <Route path="/dashbord" component={Dashbord}/>
-        <Route path="/famlies">
-          <Protected Protected={Famlies} />
-        </Route>
-        <Route path="/product">
-          <Protected Protected={Product} />
-        </Route>
-        <Route path="/location">
-          <Protected Protected={Location} />
-        </Route>
-        <Route path="/transactions">
-          <Protected Protected={Transactions} />
-        </Route>
-      </Router>
+        <Route path="/product" component={Product} />
+        <Route path="/famlies" component={Famlies} />
+        <Route path="/location" component={Location} />
+        <Route path="/transaction" component={Transactions} />
+        </Router>
     </div>
   );
 }

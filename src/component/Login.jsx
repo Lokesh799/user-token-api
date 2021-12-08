@@ -6,7 +6,7 @@ import { userLoginRequest } from "../thunk/userLoginApi";
 
 export default function Login(props) {
   const dispatch = useDispatch();
-  const userlogindata = useSelector((state) => state.LoginUser.userdata);
+  const userlogindata = useSelector((state) => state.loginUser.token);
 
 
   const history = useHistory();
