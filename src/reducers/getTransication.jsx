@@ -1,7 +1,7 @@
 import { GET_TRANSICATION } from "../actions";
 
 const initialState = {
-  gettransication: [],
+  getTransication: [],
 }
 
 const getTransication = (state = initialState, action) => {
@@ -9,11 +9,10 @@ const getTransication = (state = initialState, action) => {
     case GET_TRANSICATION:
       return {
         ...state,
-        gettransication: action.payload,
+        getTransication: action.payload,
       };
     default:
       return state;
   }
 }
-
 export default getTransication;

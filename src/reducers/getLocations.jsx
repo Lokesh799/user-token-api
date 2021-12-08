@@ -1,7 +1,7 @@
 import { GET_LOCATIONS } from "../actions";
 
 const initialState = {
-  getlocation: [],
+  getLocation: [],
 }
 
 const getLocations = (state = initialState, action) => {
@@ -9,11 +9,10 @@ const getLocations = (state = initialState, action) => {
     case GET_LOCATIONS:
       return {
         ...state,
-        getlocation: action.payload,
+        getLocation: action.payload,
       };
     default:
       return state;
   }
 }
-
 export default getLocations;

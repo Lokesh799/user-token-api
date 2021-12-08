@@ -32,5 +32,4 @@ const getProduct = (state = initialState, action) => {
       return state;
   }
 }
-
 export default getProduct;

@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { transicationRequest } from "../thunk/allApi";
-import Dashbord from "./Dashbord";
 
 export default function Transactions() {
-  const transication = useSelector((state) => state.getTransication.gettransication)
+  const transication = useSelector((state) => state.getTransication.getTransication)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(transicationRequest())
   }, [dispatch])
+
   return (
     <>
-      <Dashbord />
       <h1>Transication</h1>
       <div>
         <table className="table">

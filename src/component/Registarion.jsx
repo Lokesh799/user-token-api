@@ -6,8 +6,7 @@ import { userRegister } from "../actions";
 
 export default function Registration(props) {
   const dispatch = useDispatch();
-  const userinformation = useSelector((state) => state.postUser.userdata);
-  // console.log(userinformation)
+  const userinformation = useSelector((state) => state.postUser.userData);
 
   const history = useHistory()
 
@@ -63,7 +62,6 @@ export default function Registration(props) {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </>
   )
 }

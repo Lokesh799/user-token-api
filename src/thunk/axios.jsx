@@ -6,5 +6,4 @@ const client = axios.create({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   }
 });
-
 export default client;

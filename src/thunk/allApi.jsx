@@ -1,14 +1,8 @@
-import axios from "axios";
+import client from "./axios";
 import { getFamily, getLocations, getProduct, getTransication } from "../actions";
 
 
-const client = axios.create({
-  baseURL: ' http://localhost:8000',
-});
-const tokenfam = localStorage.getItem('token')
-client.defaults.headers.common['Authorization'] = `Bearer ${tokenfam}`
-
-export const familyRequest = (id) => async (dispatch) => {
+export const familyRequest = () => async (dispatch) => {
   try {
     const response = await client.get(`/families`);
     dispatch(getFamily(response.data));
@@ -19,10 +13,7 @@ export const familyRequest = (id) => async (dispatch) => {
 }
 
 
-const tokenloc = localStorage.getItem('token')
-
-client.defaults.headers.common['Authorization'] = `Bearer ${tokenloc}`
-export const locationRequest = (id) => async (dispatch) => {
+export const locationRequest = () => async (dispatch) => {
   try {
     const response = await client.get(`/locations`);
     dispatch(getLocations(response.data));
@@ -32,10 +23,6 @@ export const locationRequest = (id) => async (dispatch) => {
   }
 }
 
-
-
-const tokenpro = localStorage.getItem('token')
-client.defaults.headers.common['Authorization'] = `Bearer ${tokenpro}`
 
 export const productRequest = (prevFilters) => async (dispatch) => {
   try {
@@ -52,11 +39,7 @@ export const productRequest = (prevFilters) => async (dispatch) => {
 }
 
 
-
-const tokentran = localStorage.getItem('token')
-client.defaults.headers.common['Authorization'] = `Bearer ${tokentran}`
-
-export const transicationRequest = (id) => async (dispatch) => {
+export const transicationRequest = () => async (dispatch) => {
   try {
     const response = await client.get(`/transactions`);
     dispatch(getTransication(response.data));

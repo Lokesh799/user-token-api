@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { locationRequest } from "../thunk/allApi";
-import Dashbord from "./Dashbord";
 
 export default function Location() {
-  const location = useSelector((state) => state.getLocations.getlocation)
+  const location = useSelector((state) => state.getLocations.getLocation)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(locationRequest())
   }, [dispatch])
+
   return (
     <>
-      <Dashbord/>
       <div>
         <table className="table">
           <thead>

@@ -1,30 +1,34 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import navLink from './component/NavLink';
+import { Route, BrowserRouter as Router,Switch } from 'react-router-dom';
+import NavLink from './component/NavLink';
 import Registration from './component/Registarion';
 import Login from './component/Login';
-import Dashbord from './component/Dashbord';
+// import Dashbord from './component/Dashbord';
 import Famlies from './component/Famlies';
 import Product from './component/Product';
 import Location from './component/Location';
 import Transactions from './component/Transactions';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Route exact path="/" component={navLink} />
-        <Route path="/registration" component={Registration} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashbord" component={Dashbord}/>
-        <Route path="/product" component={Product} />
-        <Route path="/famlies" component={Famlies} />
-        <Route path="/location" component={Location} />
-        <Route path="/transaction" component={Transactions} />
+      <NavLink/>
+        <Switch>
+          <PublicRoute path="/registration" component={Registration} />
+          <PublicRoute path="/login" component={Login} />
+        
+        <PrivateRoute path="/product" component={Product} />
+        <PrivateRoute path="/famlies" component={Famlies} />
+        <PrivateRoute path="/location" component={Location} />
+        <PrivateRoute path="/transaction" component={Transactions} />
+          </Switch>
         </Router>
     </div>
   );
 }
-
 export default App;
